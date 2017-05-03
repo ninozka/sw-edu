@@ -23,6 +23,6 @@ class Welcome extends CI_Controller {
 	}
     
     public function iniciarPhaser(){
-        $this->load->view('presentacion/hola');
+        $this->load->view('juego/holamundo');
     }
 }
