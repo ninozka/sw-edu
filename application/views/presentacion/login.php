@@ -41,7 +41,7 @@
                        </div>
                     </form>
                 </div>
-                <button class="btn waves-effect">Iniciar Phaser</a>
+                <button href="<?=base_url()?>Welcome/iniciarPhaser" class="btn waves-effect">Iniciar Phaser</button>
                 <div class="section"></div>
                 <div class="section"></div>
             </div>
