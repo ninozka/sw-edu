@@ -2,3 +2,10 @@ body {
     background: #fff;
 }
 
+main {
+      flex: 1 0 auto;
+}
+
+.centrado{
+    text-align: center;
+}
