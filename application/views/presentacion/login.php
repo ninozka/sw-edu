@@ -23,7 +23,7 @@
                         <div class="row">
                             <div class="z-depth-1 grey lighten-4" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
                                 <div class="input-field col s12 m12">
-                                    <input class="validate" type="email" name="email" id="email" />
+                                    <input class="validate" type="email" name="email" id="email"/>
                                     <label for="email">Ingresa tu e-mail</label>
                                 </div>
                                 <div class="input-field col s12 m12">
@@ -31,7 +31,7 @@
                                     <label for="password">Ingresa tu contraseña</label>
                                 </div>
                                 <label style="float: right;">
-                                    <a class="pink-text" href="#!"><b>¿Olvidaste tu contraseña?</b></a>
+                                    <a class="pink-text" href=""><b>¿Olvidaste tu contraseña?</b></a>
                                     <div class="section"></div>
                                 </label>
                                 <div class="row">
