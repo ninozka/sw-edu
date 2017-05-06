@@ -13,7 +13,10 @@
         }
 
         public function perfilCuenta($id){
-            $perfiles = $this->db->get_where('usuario_tipo',array('usuario_id' => $id));
+            $this->db->select('t.nombre as nombre, t.id_tipo as id');
+            $this->db->from('tipo as t');
+            $this->db->join('usuario_tipo as ut','ut.tipo_id = t.id_tipo AND ut.usuario_id = "'.$id.'";');
+            $perfiles = $this->db->get();
             return $perfiles;
         }
 

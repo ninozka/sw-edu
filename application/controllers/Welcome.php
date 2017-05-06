@@ -32,7 +32,7 @@ class Welcome extends CI_Controller {
             $idUser = $datos->id;
             $tipos = $this->Usuarios->perfilCuenta($idUser);
             if($tipos->num_rows()>1){
-                $data = array('tipo' => $tipos);
+                $data = array('tipos' => $tipos);
                 $this->load->view('presentacion/seleccion_perfil',$data);
             }else{
                 $unico = $tipos->row();
