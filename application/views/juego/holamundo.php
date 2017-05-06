@@ -10,6 +10,9 @@
 </head>
 <body>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>assets/js/easytimer.min.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>assets/js/timer.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>assets/js/introduccion.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.migrate.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/materialize.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.materialize-autocomplete.min.js"></script>
@@ -25,88 +28,26 @@
             </div>
             <div class="row">
                 <div class="col s6 m6 l6 xl6">
-                    <button class="btn btn-large">Anterior</button>
+                    <a class="btn btn-large">Anterior</a>
                 </div>
                 <div class="col s6 m6 l6 xl6" style="text-align:right">
-                    <button class="btn btn-large">Siguiente</button>
+                    <a class="btn btn-large" >Siguiente</a>
                 </div>
+                <div id="timerId" hidden="">00:00:00</div>
+                <br><br><br><br>
+                <button onclick="function1()" class="btn btn-large">Mostrar tiempo</button>
             </div>
         </div>    
     </main>
     
-
-<script type="text/javascript">
-
-var game = new Phaser.Game((window.innerWidth*0.65),(window.innerHeight*0.65), Phaser.CANVAS, 'phaser-example', {create: create});
-
-
-var content = [
-"¿Qué es una clase?",
-"   Una clase posee: ",
-"       Variables de instancia",
-"       Constructor",
-"       Métodos"];
-var line = [];
-var wordIndex = 0;
-var lineIndex = 0;
-var wordDelay = 50;
-var lineDelay = 400;
-
-    
-function create() {
-    game.stage.backgroundColor = "#fff";
-    text = game.add.text(100, 32, '', { font: "30px Arial", fill: "#ff0044" });
-   
-    nextLine();
-    
-
+<script>
+    function function1() {
+    var m = document.getElementById("timerId");
+    alert(m.innerText); 
 }
-
-function nextLine() {
-
-    if (lineIndex === content.length)
-    {
-        //  We're finished
-        return;
+    function llamarControlador(){
+        
     }
-
-    //  Split the current line on spaces, so one word per array element
-    line = content[lineIndex].split(' ');
-
-    //  Reset the word index to zero (the first word in the line)
-    wordIndex = 0;
-
-    //  Call the 'nextWord' function once for each word in the line (line.length)
-    game.time.events.repeat(wordDelay, line.length, nextWord, this);
-
-    //  Advance to the next line
-    lineIndex++;
-
-}
-
-function nextWord() {
-
-    //  Add the next word onto the text string, followed by a space
-    text.text = text.text.concat(line[wordIndex] + " ");
-
-    //  Advance the word index to the next word in the line
-    wordIndex++;
-
-    //  Last word?
-    if (wordIndex === line.length)
-    {
-        //  Add a carriage return
-        text.text = text.text.concat("\n");
-
-        //  Get the next line after the lineDelay amount of ms has elapsed
-        game.time.events.add(lineDelay, nextLine, this);
-    }
-
-}
-
-
-    
 </script>
-
 </body>
 </html>
