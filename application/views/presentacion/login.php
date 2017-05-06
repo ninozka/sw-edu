@@ -19,7 +19,7 @@
                 <h5 class="indigo-text">Por favor, inicia sesión con tu cuenta</h5>
                 <div class="section"></div>
                 <div class="row">
-                    <form class="col s12 m12 l12 xl12" method="post">
+                    <form class="col s12 m12 l12 xl12" action="<?=base_url()?>Welcome/login" method="post">
                         <div class="row">
                             <div class="z-depth-1 grey lighten-4" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
                                 <div class="input-field col s12 m12">
