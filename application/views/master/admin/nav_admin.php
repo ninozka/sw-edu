@@ -1,30 +1,30 @@
-<header>
-    <ul id="slide-out" class="side-nav">
-    <li><div class="userView">
-      <div class="background">
-        <img src="images/office.jpg">
-      </div>
-      <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
-      <a href="#!name"><span class="white-text name">John Doe</span></a>
-      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-    </div></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a href="#!">Second Link</a></li>
-    <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-  </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-
-
-</header>
-<script>
-//$(".button-collapse").sideNav();
-$('.button-collapse').sideNav({
-      menuWidth: 300, // Default is 300
-      edge: 'right', // Choose the horizontal origin
-      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-      draggable: true // Choose whether you can drag to open on touch screens
-    }
-  );
-</script>
+<body>
+    <header>
+        <ul id="nav-mobile" class="side-nav fixed">
+        <li align="center" style="padding-top: 40px; padding-bottom: 15px;">
+            <div class="background">titulo</div>
+        </li>
+        <li><div class="divider"></div></li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Módulos</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="#">Ver modulos</a></li>
+                  <li><a href="#">Agregar Modulo</a></li>
+                  <li><a href="#">Modificar Módulo</a></li>
+                  <li><a href="#">Eliminar Módulo</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header waves-effect waves-teal">Usuarios</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="#">Agregar Usuario</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </header>

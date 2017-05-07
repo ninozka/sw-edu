@@ -18,4 +18,5 @@
   <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.materialize-autocomplete.min.js"></script>
   <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.validate.min.js"></script>
   <script type="text/javascript" src="<?=base_url()?>assets/js/materialize.min.js"></script>
+  <script type="text/javascript" src="<?=base_url()?>assets/js/administrador.js"></script>
 </head>
