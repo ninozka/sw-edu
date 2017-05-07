@@ -8,7 +8,7 @@
 
 <!--  <link rel="shortcut icon" href="<?=base_url()?>assets/img/favicon.ico" type="image/x-icon" /> -->
 
-  <link rel="stylesheet" href="<?=base_url()?>assets/css/font-awesome.min.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="<?=base_url()?>assets/css/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" media="screen">
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/admin.css" media="screen">

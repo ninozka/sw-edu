@@ -1,6 +1,6 @@
 header, main, footer {
-      padding-left: 300px;
-    }
+      padding-left: 200px;
+}
 
     @media only screen and (max-width : 992px) {
       header, main, footer {
@@ -34,4 +34,9 @@ body{
 .p-footer{
     text-align: center;
     color: white;
+}
+
+.center-tabla{
+    text-align: center;
+    font-size: 10px;
 }

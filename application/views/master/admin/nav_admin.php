@@ -10,17 +10,18 @@
             <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Módulos</a>
               <div class="collapsible-body">
                 <ul>
-                  <li><a href="#">Ver modulos</a></li>
-                  <li><a href="#">Agregar Modulo</a></li>
-                  <li><a href="#">Modificar Módulo</a></li>
-                  <li><a href="#">Eliminar Módulo</a></li>
+                  <li><a href="<?=base_url()?>Administrador/">Ver modulos</a></li>
+                  <li><a href="<?=base_url()?>Administrador/">Agregar Modulo</a></li>
+                  <li><a href="<?=base_url()?>Administrador/">Modificar Módulo</a></li>
+                  <li><a href="<?=base_url()?>Administrador/">Eliminar Módulo</a></li>
                 </ul>
               </div>
             </li>
             <li class="bold"><a class="collapsible-header waves-effect waves-teal">Usuarios</a>
               <div class="collapsible-body">
                 <ul>
-                  <li><a href="#">Agregar Usuario</a></li>
+                  <li><a href="<?=base_url()?>Administrador/Usuarios">Lista de Usuarios</a></li>
+                  <li><a href="<?=base_url()?>Administrador/newUser">Agregar Usuario</a></li>
                 </ul>
               </div>
             </li>
