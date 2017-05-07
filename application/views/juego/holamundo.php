@@ -21,12 +21,27 @@
     
     
     <script>
-        (function(){
+        window.contenido='';
+        window.flag=false;
+        window.activar=false;
+        usandoAjax();
+        
+        function usandoAjax(){
+            $.get("<?php echo base_url(); ?>Welcome/prueba",{idIntro:'1'},function(data){
+                window.contenido=data;
+                window.flag=true;
+                if(window.flag){
+                    empezarPhaser();
+                }
+            });
+        }
+        
+        function empezarPhaser(){
             window.game = new Phaser.Game((window.innerWidth*0.65),(window.innerHeight*0.65), Phaser.CANVAS, 'phaser-example');
             game.state.add("Inicio1", Inicio1);
             game.state.add("Inicio2", Inicio2);
-            game.state.start("Inicio1");
-        })();
+            game.state.start("Inicio1",true,false,contenido,activar);
+        }
     </script>
     
     <main>
@@ -38,8 +53,8 @@
                 </center>
             </div>
             <div class="row">
-                <div class="col s6 m6 l6 xl6">
-                    <a class="btn btn-large" onclick="funcionPrueba()">Anterior</a>
+                <div class="col s6 m6 l6 xl6" >
+                    <a class="btn btn-large" >Anterior</a>
                 </div>
                 <div class="col s6 m6 l6 xl6" style="text-align:right">
                     <a class="btn btn-large" onclick="iniciarSiguiente()" >Siguiente</a>
@@ -53,17 +68,29 @@
     
 <script>
     
+    console.log(window.activar);
     <?php $var = "cualquier contenido" ?>
     
+     
     function function1() {
         var m = document.getElementById("timerId");
-        alert(m.innerText); 
+        var s = m.innerText;
+        s = s.slice(6);
+        console.log(s);
+        var h = parseInt(s);
+        console.log(h);
     }
     
     function iniciarSiguiente(){
         var contenido = '<?php echo $var; ?>';
         console.log(contenido);
-        game.state.start("Inicio2",true,false,contenido);
+        var m = document.getElementById("timerId");
+        var s = m.innerText;
+        s = s.slice(6);
+        var h = parseInt(s);
+        if(h>=4){
+            game.state.start("Inicio2",true,false,contenido);
+        }
     }
 </script>
 </body>

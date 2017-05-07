@@ -6,10 +6,16 @@ class Welcome extends CI_Controller {
 	public function __construct(){
         parent::__construct();
         $this->load->model('Usuarios');
+        $this->load->model('Contenido');
     }
     
     public function prueba(){
-        $this->input->get('contenido de prueba');
+        //$this->input->get('contenido de prueba');
+        $idIntro = $this->input->get('idIntro');
+        $var = $this->Contenido->getContenidoIntro($idIntro);
+        
+        
+        echo $var->ruta;        
     }
 
 	public function index(){

@@ -1,4 +1,4 @@
-var content = ["Introducción","","En este módulo veremos:","   * Qué es una clase","   * La estructura de una clase (variables de instancia, constructor, métodos)","   * Manejo de referencias entre objetos de la case",];
+var content=[];
 var line = [];
 var wordIndex = 0;
 var lineIndex = 0;
@@ -11,10 +11,28 @@ var Inicio1 = function(game){
 
 
 Inicio1.prototype = {
+    
+    init: function(contenido,activar){
+        console.log(contenido);
+        var caracter='';
+        for(var i = 0;i<contenido.length;i++){
+            if(contenido.charAt(i)=='-'){
+                console.log(caracter);
+                content.push(caracter);
+                caracter='';
+            }else{
+                caracter = caracter+contenido.charAt(i);
+            }
+            if((i+1) == contenido.length){
+                content.push(caracter);
+            }
+            
+        }
+        
+        console.log(content);
+    },
 
     create: function(){
-        
-        this.game.contenido="";
         this.game.stage.backgroundColor = "#fff";
         text = this.game.add.text(100, 70, '', { font: "22px Arial", fill: "#ff0044" });
         this.nextLine();
@@ -23,7 +41,6 @@ Inicio1.prototype = {
     nextLine: function(){
         if (lineIndex === content.length)
         {
-            //  We're finished
             return;
         }
 
