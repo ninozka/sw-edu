@@ -39,7 +39,7 @@
             </div>
             <div class="row">
                 <div class="col s6 m6 l6 xl6">
-                    <a class="btn btn-large">Anterior</a>
+                    <a class="btn btn-large" onclick="funcionPrueba()">Anterior</a>
                 </div>
                 <div class="col s6 m6 l6 xl6" style="text-align:right">
                     <a class="btn btn-large" onclick="iniciarSiguiente()" >Siguiente</a>
@@ -52,12 +52,18 @@
     </main>
     
 <script>
+    
+    <?php $var = "cualquier contenido" ?>
+    
     function function1() {
-    var m = document.getElementById("timerId");
-    alert(m.innerText); 
-}
+        var m = document.getElementById("timerId");
+        alert(m.innerText); 
+    }
+    
     function iniciarSiguiente(){
-        game.state.start("Inicio2");
+        var contenido = '<?php echo $var; ?>';
+        console.log(contenido);
+        game.state.start("Inicio2",true,false,contenido);
     }
 </script>
 </body>

@@ -4,7 +4,7 @@ var wordIndex = 0;
 var lineIndex = 0;
 var wordDelay = 50;
 var lineDelay = 400; 
-
+ 
 var Inicio1 = function(game){
     
 };
@@ -13,7 +13,8 @@ var Inicio1 = function(game){
 Inicio1.prototype = {
 
     create: function(){
-       
+        
+        this.game.contenido="";
         this.game.stage.backgroundColor = "#fff";
         text = this.game.add.text(100, 70, '', { font: "22px Arial", fill: "#ff0044" });
         this.nextLine();

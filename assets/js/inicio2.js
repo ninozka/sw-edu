@@ -4,11 +4,18 @@ var Inicio2 = function(game){
 
 
 Inicio2.prototype = {
+    
+    init: function(contenido){
+        var cont=contenido;
+        this.game.contenido=cont;
+        console.log(this.game.contenido);
+    },
 
     create: function(){
-       
+    
+        
         this.game.stage.backgroundColor = "#fff";
-        text = this.game.add.text(100, 70, 'ESTOY EN OTRO JS, EL INICIO2', { font: "22px Arial", fill: "#ff0044" });
+        text = this.game.add.text(100, 70, this.game.contenido, { font: "22px Arial", fill: "#ff0044" });
         this.nextLine();
     },
     

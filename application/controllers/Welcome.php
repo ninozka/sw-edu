@@ -7,6 +7,10 @@ class Welcome extends CI_Controller {
         parent::__construct();
         $this->load->model('Usuarios');
     }
+    
+    public function prueba(){
+        $this->input->get('contenido de prueba');
+    }
 
 	public function index(){
 		$this->load->view('presentacion/login');
