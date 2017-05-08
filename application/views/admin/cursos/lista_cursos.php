@@ -6,7 +6,7 @@
 			<br>
             <br>
 			<?php if($user != false){ ?>
-			<a class="btn botonAdmin btn-warning" style="background-color: #f1692f" href="<?=base_url()?>Administracion/newUser/">Agregar Usuario</a>
+			<a class="btn botonAdmin btn-warning" href="<?=base_url()?>Administrador/newUser/">Agregar Usuario</a>
 			<br>
 			<br>
 			<br>
@@ -40,24 +40,24 @@
                             if($tipos->num_rows() == 1){
                                 $tipo = $tipos->row();
                                 if($tipo->tipo_id == 1){
-                                    echo '<th class="center-align"><i class="fa fa-check fa-2x" aria-hidden="true"></i></th>
-                                          <th class="center-align"><i class="fa fa-times fa-2x" aria-hidden="true"></i></th>';
+                                    echo '<th class="center-align"><i class="green medium material-icons">done</i></th>
+                                          <th class="center-align"><i class="red medium material-icons">not_interested</i></th>';
                                 }else{
-                                    echo '<th class="center-align"><i class="fa fa-times fa-2x" aria-hidden="true"></i></th>
-                                    <th class="center-align"><i class="fa fa-check fa-2x" aria-hidden="true"></i></th>';
+                                    echo '<th class="center-align"><i class="red medium material-icons">not_interested</i></th>
+                                    <th class="center-align"><i class="green medium material-icons">done</i></th>';
                                 }
                             }elseif($tipos->num_rows()==2 ){
-                                echo '<th class="center-align"><i class="fa fa-check fa-2x" aria-hidden="true"></i></th>
-                                <th class="center-align"><i class="fa fa-check fa-2x" aria-hidden="true"></i></th>';
+                                echo '<th class="center-align"><i class="green medium material-icons">done</i></th>
+                                <th class="center-align"><i class="green medium material-icons">done</i></th>';
                             }else{
-                                echo '<th class="center-align"><i class="fa fa-times fa-2x" aria-hidden="true"></i></th>
-                                <th class="center-align"><i class="fa fa-times fa-2x" aria-hidden="true"></i></th>';
+                                echo '<th class="center-align"><i class="red medium material-icons">not_interested</i></th>
+                                <th class="center-align"><i class="red medium material-icons">not_interested</i></th>';
                             }
                             ?>
 
                             <th style="text-align:center">
                                 <a class="a-admin" href="<?=base_url()?>Administracion/"><i class="fa fa-pencil-square-o fa-2x" title="Modificar datos del usuario" aria-hidden="true"></i></a>
-                                <!--<input type="button" id ="btnTest" value="Test"/></th>-->
+                            </th>
                             <th style="text-align:center">
                             <a onclick="return confirm('desea eliminar el usuario?');" class="a-admin" href="<?=base_url()?>Administracion/"><i class="fa fa-trash fa-2x" title="Eliminar el usuario" aria-hidden="true"></i></a>
                             </th>
@@ -79,59 +79,3 @@
 		</div>
 	</div>
 </main>
-
-<div id="dialog" title="Alert message" style="display: none">
-    <div class="ui-dialog-content ui-widget-content">
-        <p>
-            <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0"></span>
-            <label id="lblMessage"></label>
-        </p>
-    </div>
-</div>
-
-<script>
-    $(document).ready(function(){
-        $('#btnTest').click(function(){
-            ShowCustomDialog();
-        });
-    });
-
-    function ShowCustomDialog(){
-        ShowDialogBox('Cuadro de Dialogo','¿Estas seguro de eliminar el usuario?','Ok',null);
-    }
-
-    function ShowDialogBox(title, content, btn1text, parameterList) {
-        var btn1css;
-        var btn2css;
-
-        if (btn1text == '') {
-            btn1css = "hidecss";
-        } else {
-            btn1css = "showcss";
-        }
-
-
-        $("#lblMessage").html(content);
-
-        $("#dialog").dialog({
-            resizable: false,
-            title: title,
-            modal: true,
-            width: '400px',
-            height: 'auto',
-            bgiframe: false,
-            hide: { effect: 'scale', duration: 200 },
-
-            buttons: [
-                {
-                    text: btn1text,
-                    "class": btn1css,
-                    click: function () {
-                        $("#dialog").dialog('close');
-
-                    }
-                }
-            ]
-        });
-    }
-</script>

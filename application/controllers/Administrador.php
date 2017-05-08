@@ -6,6 +6,7 @@ class Administrador extends CI_Controller {
 	public function __construct(){
         parent::__construct();
         $this->load->model('Usuarios');
+        $this->load->helper('url'); 
     }
 
     /* Funcion index: Al iniciar sesion si el usuario es de tipo administrador llega a esta funcion la cual carga la vista de inicio*/
@@ -29,7 +30,7 @@ class Administrador extends CI_Controller {
 
             $this->load->view('master/admin/head_admin',$data_head);
             $this->load->view('master/admin/nav_admin');
-            $this->load->view('admin/new_user',$data);
+            $this->load->view('admin/usuarios/new_user',$data);
             $this->load->view('master/admin/footer_admin');
 
         }else{
@@ -60,7 +61,7 @@ class Administrador extends CI_Controller {
         }
     }
 
-    //
+    //Funcion para ver a todos los usuarios tipo adiministrador y profesor
     public function Usuarios(){
         if($this->session->userdata('correo') && $this->session->tipo =='1'){
             $data_head = array('titulo' => 'Lista de Usuarios');
@@ -68,7 +69,52 @@ class Administrador extends CI_Controller {
                          'tipos' => $this->Usuarios->getTipos());
             $this->load->view('master/admin/head_admin',$data_head);
             $this->load->view('master/admin/nav_admin');
-            $this->load->view('admin/lista_user',$data);
+            $this->load->view('admin/usuarios/lista_user',$data);
+            $this->load->view('master/admin/footer_admin');
+
+        }else{
+            echo "<script>window.location.href='".base_url()."Welcome/';</script>";
+        }
+    }
+    
+    //funcion para ver a todos los alumnos;
+    public function alumnos(){
+        if($this->session->userdata('correo') && $this->session->tipo =='1'){
+            $data_head = array('titulo' => 'Alumnos');
+            $data = array('alumnos' => $this->Usuarios->getAlumnos());
+            
+            $this->load->view('master/admin/head_admin',$data_head);
+            $this->load->view('master/admin/nav_admin');
+            $this->load->view('admin/alumnos/lista_alumnos',$data);
+            $this->load->view('master/admin/footer_admin');
+
+        }else{
+            echo "<script>window.location.href='".base_url()."Welcome/';</script>";
+        }
+        
+    }
+    
+    public function cursos(){
+        if($this->session->userdata('correo') && $this->session->tipo =='1'){
+            $data_head = array('titulo' => 'Cursos');
+            $data = array ('cursos' => $this->Usuarios->getCursos());
+            $this->load->view('master/admin/head_admin',$data_head);
+            $this->load->view('master/admin/nav_admin');
+            $this->load->view('admin/cursos/lista_curso',$data);
+            $this->load->view('master/admin/footer_admin');
+
+        }else{
+            echo "<script>window.location.href='".base_url()."Welcome/';</script>";
+        }
+    }
+    
+    public function newCurso(){
+        if($this->session->userdata('correo') && $this->session->tipo =='1'){
+            $data_head = array('titulo' => 'Nuevo Curso');
+            
+            $this->load->view('master/admin/head_admin',$data_head);
+            $this->load->view('master/admin/nav_admin');
+            $this->load->view('admin/cursos/new_curso');
             $this->load->view('master/admin/footer_admin');
 
         }else{

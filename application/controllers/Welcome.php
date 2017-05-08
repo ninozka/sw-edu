@@ -73,4 +73,9 @@ class Welcome extends CI_Controller {
         }
 
     }
+    
+    public function cerrarSesion(){
+        $this->session->sess_destroy();
+        echo "<script> window.location.href='".base_url()."';</script>";
+    }
 }

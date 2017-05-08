@@ -1,3 +1,6 @@
+//Inicializando selects materialize
+
+
 /*
     FUNCION PARA VALIDAR EL RUT y auto completar con puntos y guiones
 */
