@@ -13,17 +13,17 @@
 			         <div class="row">
                          <div class="col s12"></div>
 			             <div class="input-field col offset-m4 offset-l4 l4 m4 s12">
-                             <i class="material-icons prefix">mail</i>
-			                 <input name="correo" id="correo" type="email" class="validate" required>
-			                 <label for="correo">Sigla (nombre)</label>
+                             <i class="material-icons prefix">label</i>
+			                 <input name="nombre" id="nombre" type="text" class="validate" required>
+			                 <label for="nombre">Sigla (nombre)</label>
 			             </div>
                      </div>
                      <div class="col m2 s12"></div>
                     <div class="row">
 			             <div class="input-field col offset-m4 offset-l4 l4 m4 s12">
-                             <i class="material-icons prefix">person_pin</i>
-			                 <select name="semestre" id="semestre">
-                                 <option value="0" disabled selected>Selecciona un semestre</option>
+                             <i class="material-icons prefix">today</i>
+			                 <select name="semestre" id="semestre" required>
+                                 <option value="">Selecciona un semestre</option>
 			                     <option value="1">Primer Semestre</option>
 			                     <option value="2">Segundo Semestre</option>
 			                 </select>
@@ -32,9 +32,9 @@
 			         </div>
                      <div class="row">
 			             <div class="input-field col offset-m4 offset-l4 l4 m4 s12">
-                             <i class="material-icons prefix">person_pin</i>
+                             <i class="material-icons prefix">today</i>
 			                 <input name="year" id="year" type="text" class="validate" required>
-			                 <label for="nombre">Año</label>
+			                 <label for="year">Año</label>
 						 </div>
 			         </div>
 			     </div>

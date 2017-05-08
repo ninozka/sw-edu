@@ -100,7 +100,7 @@ class Administrador extends CI_Controller {
             $data = array ('cursos' => $this->Usuarios->getCursos());
             $this->load->view('master/admin/head_admin',$data_head);
             $this->load->view('master/admin/nav_admin');
-            $this->load->view('admin/cursos/lista_curso',$data);
+            $this->load->view('admin/cursos/lista_cursos',$data);
             $this->load->view('master/admin/footer_admin');
 
         }else{
@@ -119,6 +119,18 @@ class Administrador extends CI_Controller {
 
         }else{
             echo "<script>window.location.href='".base_url()."Welcome/';</script>";
+        }
+    }
+
+    public function newCurso_proc(){
+        $nombre = $this->input->post('nombre');
+        $semestre = $this->input->post('semestre');
+        $year = $this->input->post('year');
+
+        if($this->Usuarios->nuevoCurso($nombre,$semestre,$year)){
+            echo "<script>alert('Se ha ingresado el nuevo curso'); window.location.href='".base_url()."Administrador/';</script>";
+        }else{
+            echo "<script>alert('Hubo un error en la creación'); window.location.href='".base_url()."Administrador/';</script>";
         }
     }
 }

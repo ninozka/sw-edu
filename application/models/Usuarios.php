@@ -79,5 +79,27 @@
                 return false;
             }
         }
+
+        //Funcion para obtener los cursos creados
+        public function getCursos(){
+            $data = $this->db->get_where('cursos',array('eliminado' => '0'));
+            if($data->num_rows()>0){
+                return $data;
+            }else{
+                return false;
+            }
+        }
+
+        //Funcion para añadir el nuevo curso a la base de datos
+        public function nuevoCurso($nombre,$semestre,$year){
+            $data = array('nombre' => $nombre,
+                         'semestre' => $semestre,
+                         'anho' => $year);
+            if($this->db->insert('cursos',$data)){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 ?>
