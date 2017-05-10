@@ -69,7 +69,7 @@
 <script>
     
     console.log(window.activar);
-    <?php $var = "cualquier contenido" ?>
+    <?php $var = "Una clase en Java se compone de:-    * Variables de Instancia-    * Constructor-    * Métodos- -Estos son conocidos como MIEMBROS DE LA CLASE" ?>
     
      
     function function1() {
@@ -89,7 +89,7 @@
         s = s.slice(6);
         var h = parseInt(s);
         if(h>=4){
-            game.state.start("Inicio2",true,false,contenido);
+            game.state.start("Inicio<?php echo '1' ?>",true,false,contenido);
         }
     }
 </script>
