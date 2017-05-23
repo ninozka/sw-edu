@@ -45,6 +45,7 @@
     </script>
     
     <main>
+       <?php $i=1?>
         <h3 style="text-align:center;">Bienvenido al Módulo 1</h3>
         <div class="container">
             <div class="row" style="border: 5px solid black;border-radius: 20px;">
@@ -52,17 +53,19 @@
                     <div class="col s12 m12 l12 xl12" id="phaser-example"></div>
                 </center>
             </div>
-            <div class="row">
+            <!--<div class="row">
                 <div class="col s6 m6 l6 xl6" >
                     <a class="btn btn-large" >Anterior</a>
                 </div>
                 <div class="col s6 m6 l6 xl6" style="text-align:right">
-                    <a class="btn btn-large" onclick="iniciarSiguiente()" >Siguiente</a>
+                    <a class="btn btn-large" onclick="iniciarSiguiente<?=$i?>()" >Siguiente</a>
+                    
                 </div>
+                <p><?= $i?></p>
                 <div id="timerId" hidden="">00:00:00</div>
                 <br><br><br><br>
                 <button onclick="function1()" class="btn btn-large">Mostrar tiempo</button>
-            </div>
+            </div>-->
         </div>    
     </main>
     
@@ -81,7 +84,7 @@
         console.log(h);
     }
     
-    function iniciarSiguiente(){
+    function iniciarSiguiente1(){
         var contenido = '<?php echo $var; ?>';
         console.log(contenido);
         var m = document.getElementById("timerId");
@@ -91,7 +94,9 @@
         if(h>=4){
             game.state.start("Inicio<?php echo '1' ?>",true,false,contenido);
         }
+        
     }
+    
 </script>
 </body>
 </html>

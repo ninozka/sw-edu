@@ -32,10 +32,23 @@ Inicio1.prototype = {
         console.log(content);
     },
 
+    preload: function(){
+        this.game.load.spritesheet('button-a','../assets/buttons/btn-anterior.jpg', 212, 80);
+        this.game.load.spritesheet('button-s','../assets/buttons/btn-siguiente.jpg', 212, 80);
+    },
+    
     create: function(){
         this.game.stage.backgroundColor = "#fff";
+        var buttonA = this.game.add.button(30,340,'button-a', this.wea, this, 2, 1,0);
+        var buttonS = this.game.add.button(645,340,'button-s','', this, 2, 1,0);
+        
         text = this.game.add.text(100, 70, '', { font: "22px Arial", fill: "#ff0044" });
         this.nextLine();
+    },
+    
+    wea: function(){
+        console.log('loquesea');
+        console.log('loquesea');
     },
     
     nextLine: function(){
@@ -74,4 +87,5 @@ Inicio1.prototype = {
             this.game.time.events.add(lineDelay, this.nextLine, this);
         }
     }
+
 }
