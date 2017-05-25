@@ -40,7 +40,7 @@
             window.game = new Phaser.Game((window.innerWidth*0.65),(window.innerHeight*0.65), Phaser.CANVAS, 'phaser-example');
             game.state.add("Inicio1", Inicio1);
             game.state.add("Inicio2", Inicio2);
-            game.state.start("Inicio1",true,false,contenido,activar);
+            game.state.start("Inicio1");
         }
     </script>
     

@@ -1,9 +1,5 @@
-var content=[];
-var line = [];
-var wordIndex = 0;
-var lineIndex = 0;
-var wordDelay = 50;
-var lineDelay = 400; 
+
+var text; 
  
 var Inicio1 = function(game){
     
@@ -11,80 +7,61 @@ var Inicio1 = function(game){
 
 
 Inicio1.prototype = {
-    
-    init: function(contenido,activar){
-        console.log(contenido);
-        var caracter='';
-        for(var i = 0;i<contenido.length;i++){
-            if(contenido.charAt(i)=='-'){
-                console.log(caracter);
-                content.push(caracter);
-                caracter='';
-            }else{
-                caracter = caracter+contenido.charAt(i);
-            }
-            if((i+1) == contenido.length){
-                content.push(caracter);
-            }
-            
-        }
-        
-        console.log(content);
-    },
 
     preload: function(){
-        this.game.load.spritesheet('button-a','../assets/buttons/btn-anterior.jpg', 212, 80);
-        this.game.load.spritesheet('button-s','../assets/buttons/btn-siguiente.jpg', 212, 80);
+        this.game.load.spritesheet('instancia','../assets/buttons/variablesInstancia.png', 228, 90);
+        this.game.load.spritesheet('constructor','../assets/buttons/constructor.png', 228, 90);
+        this.game.load.spritesheet('metodo','../assets/buttons/metodo.png', 228, 90);
+        this.game.load.spritesheet('btn-a','../assets/buttons/btn-a.png', 58, 58);
+        this.game.load.spritesheet('btn-s','../assets/buttons/btn-s.png', 58, 58);
     },
     
     create: function(){
         this.game.stage.backgroundColor = "#fff";
-        var buttonA = this.game.add.button(30,340,'button-a', '', this, 2, 1,0);
-        var buttonS = this.game.add.button(645,340,'button-s',this.wea, this, 2, 1,0);
+        var instancia = this.game.add.button(30,150,'instancia', '','', 2, 1,0);
+        var constructor = this.game.add.button(328,150,'constructor','', this, 2, 1,0);
+        var metodo = this.game.add.button(616,150,'metodo','',this,2,1,0);
+        var anterior = this.game.add.button(30,330,'btn-a','',this,2,1,0);
+        var siguiente = this.game.add.button(740,330,'btn-s','',this,2,1,0);
         
-        text = this.game.add.text(100, 70, '', { font: "22px Arial", fill: "#ff0044" });
-        this.nextLine();
+        
+        this.game.add.text(230, 50, 'Una clase está compuesta de:', { font: "28px Arial", fill: "#ff0044" });
+        
+        
+        instancia.onInputOver.add((e) => {this.over(e);});
+        constructor.onInputOver.add((e) => {this.over(e);});
+        metodo.onInputOver.add((e) => {this.over(e);});
+        instancia.onInputOut.add((e) => {this.out(e);});
+        constructor.onInputOut.add((e) => {this.out(e);});
+        metodo.onInputOut.add((e) => {this.out(e);});
     },
     
-    wea: function(){
-        var contenido = "Una clase en Java se compone de:-    * Variables de Instancia-    * Constructor-    * Métodos- -Estos son conocidos como MIEMBROS DE LA CLASE"
-        this.game.state.start("Inicio2",true,false,contenido);
-    },
-    
-    nextLine: function(){
-        if (lineIndex === content.length)
-        {
-            return;
+    over: function(e){
+        var contenido;
+        
+        var posicion;
+        
+        if (e.key === 'instancia'){
+            contenido = 'Las variables de instancia son\nlos atributos de una clase';
+            posicion = "center";
         }
-
-        //  Split the current line on spaces, so one word per array element
-        line = content[lineIndex].split(' ');
-
-        //  Reset the word index to zero (the first word in the line)
-        wordIndex = 0;
-
-        //  Call the 'nextWord' function once for each word in the line (line.length)
-        this.game.time.events.repeat(wordDelay, line.length, this.nextWord, this);
-
-        //  Advance to the next line
-        lineIndex++;
+        if(e.key == 'constructor'){
+            contenido = 'El constructor contiene las\ninstrucciones que se ejecutan\nal momento de crear una INSTANCIA DE CLASE.';
+            posicion = "center";
+        }
+        if(e.key == 'metodo'){
+            contenido = 'Un método es un conjunto de instrucciones\nque permiten a un objeto realizar \nuna tarea que le es propia.';
+            posicion = "center";
+        }
+        
+        text = this.game.add.text(30, 330,contenido, { font: "24px Arial", fill: "#ff0044", align: "center", boundsAlignH: posicion, boundsAlignV: "middle" });
+        
+        text.setTextBounds(30, 30, (window.innerWidth*0.55), 30);
     },
     
-    nextWord: function(){
-         //  Add the next word onto the text string, followed by a space
-        text.text = text.text.concat(line[wordIndex] + " ");
-
-        //  Advance the word index to the next word in the line
-        wordIndex++;
-
-        //  Last word?
-        if (wordIndex === line.length)
-        {
-            //  Add a carriage return
-            text.text = text.text.concat("\n");
-
-            //  Get the next line after the lineDelay amount of ms has elapsed
-            this.game.time.events.add(lineDelay, this.nextLine, this);
+    out:function(e){
+        if (e.key === 'instancia' || e.key === 'constructor' || e.key === 'metodo'){
+            text.destroy();
         }
     }
 
