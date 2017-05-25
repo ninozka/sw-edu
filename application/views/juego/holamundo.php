@@ -12,8 +12,8 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/easytimer.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/timer.js"></script>
-    <script type="text/javascript" src="<?=base_url()?>assets/js/inicio1.js"></script>
-    <script type="text/javascript" src="<?=base_url()?>assets/js/inicio2.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/inicio1.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/inicio2.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.migrate.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/materialize.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.materialize-autocomplete.min.js"></script>

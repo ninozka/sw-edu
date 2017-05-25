@@ -6,9 +6,23 @@ var Inicio2 = function(game){
 Inicio2.prototype = {
     
     init: function(contenido){
-        var cont=contenido;
-        this.game.contenido=cont;
-        console.log(this.game.contenido);
+        console.log(contenido);
+        var caracter='';
+        for(var i = 0;i<contenido.length;i++){
+            if(contenido.charAt(i)=='-'){
+                console.log(caracter);
+                content.push(caracter);
+                caracter='';
+            }else{
+                caracter = caracter+contenido.charAt(i);
+            }
+            if((i+1) == contenido.length){
+                content.push(caracter);
+            }
+            
+        }
+        
+        console.log(content);
     },
 
     create: function(){

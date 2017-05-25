@@ -39,16 +39,16 @@ Inicio1.prototype = {
     
     create: function(){
         this.game.stage.backgroundColor = "#fff";
-        var buttonA = this.game.add.button(30,340,'button-a', this.wea, this, 2, 1,0);
-        var buttonS = this.game.add.button(645,340,'button-s','', this, 2, 1,0);
+        var buttonA = this.game.add.button(30,340,'button-a', '', this, 2, 1,0);
+        var buttonS = this.game.add.button(645,340,'button-s',this.wea, this, 2, 1,0);
         
         text = this.game.add.text(100, 70, '', { font: "22px Arial", fill: "#ff0044" });
         this.nextLine();
     },
     
     wea: function(){
-        console.log('loquesea');
-        console.log('loquesea');
+        var contenido = "Una clase en Java se compone de:-    * Variables de Instancia-    * Constructor-    * Métodos- -Estos son conocidos como MIEMBROS DE LA CLASE"
+        this.game.state.start("Inicio2",true,false,contenido);
     },
     
     nextLine: function(){
