@@ -18,14 +18,14 @@ Inicio1.prototype = {
     
     create: function(){
         this.game.stage.backgroundColor = "#fff";
-        var instancia = this.game.add.button(30,150,'instancia', '','', 2, 1,0);
-        var constructor = this.game.add.button(328,150,'constructor','', this, 2, 1,0);
-        var metodo = this.game.add.button(616,150,'metodo','',this,2,1,0);
-        var anterior = this.game.add.button(30,350,'btn-a','',this,2,1,0);
-        var siguiente = this.game.add.button(800,350,'btn-s',this.next,this,2,1,0);
+        var instancia = this.game.add.button((window.innerWidth*0.03),(window.innerHeight*0.23),'instancia', '','', 2, 1,0);
+        var constructor = this.game.add.button((window.innerWidth*0.24),(window.innerHeight*0.23),'constructor','', this, 2, 1,0);
+        var metodo = this.game.add.button((window.innerWidth*0.45),(window.innerHeight*0.23),'metodo','',this,2,1,0);
+        var anterior = this.game.add.button((window.innerWidth*0.01),(window.innerHeight*0.53),'btn-a','',this,2,1,0);
+        var siguiente = this.game.add.button((window.innerWidth*0.593),(window.innerHeight*0.53),'btn-s',this.next,this,2,1,0);
         
         
-        this.game.add.text(230, 50, 'Una clase está compuesta de', { font: "28px Arial", fill: "black" });
+        this.game.add.text((window.innerWidth*0.20),(window.innerHeight*0.05), 'Una clase está compuesta de', { font: "28px Arial", fill: "black" });
         
         
         instancia.onInputOver.add((e) => {this.over(e);});

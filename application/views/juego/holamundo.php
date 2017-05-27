@@ -53,19 +53,6 @@
                     <div class="col s12 m12 l12 xl12" id="phaser-example"></div>
                 </center>
             </div>
-            <!--<div class="row">
-                <div class="col s6 m6 l6 xl6" >
-                    <a class="btn btn-large" >Anterior</a>
-                </div>
-                <div class="col s6 m6 l6 xl6" style="text-align:right">
-                    <a class="btn btn-large" onclick="iniciarSiguiente<?=$i?>()" >Siguiente</a>
-                    
-                </div>
-                <p><?= $i?></p>
-                <div id="timerId" hidden="">00:00:00</div>
-                <br><br><br><br>
-                <button onclick="function1()" class="btn btn-large">Mostrar tiempo</button>
-            </div>-->
         </div>    
     </main>
     
