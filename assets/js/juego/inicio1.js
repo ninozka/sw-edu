@@ -54,9 +54,9 @@ Inicio1.prototype = {
             posicion = "center";
         }
         
-        text = this.game.add.text(30, 330,contenido, { font: "24px Arial", fill: "#ff0044", align: "center", boundsAlignH: posicion, boundsAlignV: "middle" });
+        text = this.game.add.text((window.innerWidth*0.03), (window.innerHeight*0.43),contenido, { font: "24px Arial", fill: "black", align: "center", boundsAlignH: posicion, boundsAlignV: "middle" });
         
-        text.setTextBounds(30, 30, (window.innerWidth*0.55), 30);
+        text.setTextBounds((window.innerWidth*0.03), (window.innerWidth*0.03), (window.innerWidth*0.55), (window.innerWidth*0.03));
     },
     
     out:function(e){
