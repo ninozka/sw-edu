@@ -14,7 +14,6 @@
     <script type="text/javascript" src="<?=base_url()?>assets/js/timer.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/juego/inicio1.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/juego/inicio2.js"></script>
-    <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.migrate.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/materialize.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.materialize-autocomplete.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
