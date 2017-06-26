@@ -1,5 +1,6 @@
 
 var text; 
+var sonidoImagen;
  
 var Inicio1 = function(game){
     
@@ -14,6 +15,7 @@ Inicio1.prototype = {
         this.game.load.spritesheet('metodo','../assets/buttons/metodo.png', 228, 90);
         this.game.load.spritesheet('btn-a','../assets/buttons/btn-a.png', 58, 58);
         this.game.load.spritesheet('btn-s','../assets/buttons/btn-s.png', 58, 58);
+        this.game.load.audio('imagen','../assets/sonido/jp00463.mp3');
     },
     
     create: function(){
@@ -24,8 +26,9 @@ Inicio1.prototype = {
         var anterior = this.game.add.button((window.innerWidth*0.01),(window.innerHeight*0.53),'btn-a','',this,2,1,0);
         var siguiente = this.game.add.button((window.innerWidth*0.593),(window.innerHeight*0.53),'btn-s',this.next,this,2,1,0);
         
+        sonidoImagen = this.game.add.audio('imagen');
         
-        this.game.add.text((window.innerWidth*0.20),(window.innerHeight*0.05), 'Una clase está compuesta de', { font: "28px Arial", fill: "black" });
+        this.game.add.text((window.innerWidth*0.19),(window.innerHeight*0.05), 'Una clase está compuesta de', { font: "30px Arial", fill: "black" });
         
         
         instancia.onInputOver.add((e) => {this.over(e);});
@@ -44,14 +47,17 @@ Inicio1.prototype = {
         if (e.key === 'instancia'){
             contenido = 'Las variables de instancia son\nlos atributos de una clase';
             posicion = "center";
+            sonidoImagen.play();
         }
         if(e.key == 'constructor'){
             contenido = 'El constructor contiene las\ninstrucciones que se ejecutan\nal momento de crear una INSTANCIA DE CLASE.';
             posicion = "center";
+            sonidoImagen.play();
         }
         if(e.key == 'metodo'){
             contenido = 'Un método es un conjunto de instrucciones\nque permiten a un objeto realizar \nuna tarea que le es propia.';
             posicion = "center";
+            sonidoImagen.play();
         }
         
         text = this.game.add.text((window.innerWidth*0.03), (window.innerHeight*0.43),contenido, { font: "24px Arial", fill: "black", align: "center", boundsAlignH: posicion, boundsAlignV: "middle" });

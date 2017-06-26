@@ -12,8 +12,12 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/easytimer.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/timer.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/inicio0.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/juego/inicio1.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/juego/inicio2.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/inicio3.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/clase1.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/clase2.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/materialize.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.materialize-autocomplete.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
@@ -37,9 +41,13 @@
         
         function empezarPhaser(){
             window.game = new Phaser.Game((window.innerWidth*0.65),(window.innerHeight*0.65), Phaser.CANVAS, 'phaser-example');
+            game.state.add("Inicio0", Inicio0);
             game.state.add("Inicio1", Inicio1);
             game.state.add("Inicio2", Inicio2);
-            game.state.start("Inicio1");
+            game.state.add("Inicio3", Inicio3);
+            game.state.add("Clase1", Clase1);
+            game.state.add("Clase2", Clase2);
+            game.state.start("Inicio0");
         }
     </script>
     

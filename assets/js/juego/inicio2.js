@@ -86,6 +86,5 @@ Inicio2.prototype = {
             currentSprite.position.copyFrom(currentSprite.originalPosition);
         }
   }
-});
 
 }
