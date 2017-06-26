@@ -31,6 +31,6 @@ Clase2.prototype = {
     },
 
     next: function(){
-        this.game.state.start("Inicio1");
+        this.game.state.start("Clase3");
     }
 }
