@@ -13,6 +13,7 @@
     <script type="text/javascript" src="<?=base_url()?>assets/js/easytimer.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/timer.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/testAlumnos/pregunta1.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>assets/js/testAlumnos/pregunta2.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/materialize.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.materialize-autocomplete.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
@@ -38,7 +39,8 @@
         function empezarPhaser(){
             window.game = new Phaser.Game((window.innerWidth*0.65),(window.innerHeight*0.65), Phaser.CANVAS, 'phaser-example');
             game.state.add("Pregunta1", Pregunta1);
-            game.state.start("Pregunta1",url);
+            game.state.add("Pregunta2", Pregunta2);
+            game.state.start("Pregunta1");
         }
     </script>
 
@@ -53,36 +55,5 @@
             </div>
         </div>
     </main>
-
-<script>
-
-    console.log(window.activar);
-    <?php $var = "Una clase en Java se compone de:-    * Variables de Instancia-    * Constructor-    * Métodos- -Estos son conocidos como MIEMBROS DE LA CLASE" ?>
-
-
-    function function1() {
-        var m = document.getElementById("timerId");
-        var s = m.innerText;
-        s = s.slice(6);
-        console.log(s);
-        var h = parseInt(s);
-        console.log(h);
-    }
-
-    function iniciarSiguiente1(){
-        var contenido = '<?php echo $var; ?>';
-        console.log(contenido);
-        var m = document.getElementById("timerId");
-        var s = m.innerText;
-        s = s.slice(6);
-        var h = parseInt(s);
-        if(h>=4){
-            game.state.start("Inicio<?php echo '1' ?>",true,false,contenido);
-        }
-
-    }
-
-</script>
-<input type="hidden" id="url" value="<?=base_url()?>/Welcome/obtenerPregunta">
 </body>
 </html>

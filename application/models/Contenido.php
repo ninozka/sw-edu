@@ -27,5 +27,17 @@
             $data = $this->db->get_where('respuestas_incorrectas', array('pregunta_id' => $id));
             return $data->row();
         }
+
+        public function obtenerPuntaje($rut){
+            $data = $this->db->get_where('resultado_test',array('rut' => $rut));
+            return $data->row();
+        }
+
+        public function agregarPuntaje($rut,$puntaje){
+            $puntaje = puntaje +1;
+            $data = array('puntajeObt' => $puntaje);
+            $this->db->where('rut',$rut);
+            $this->db->update('resultado_test',$data);
+        }
     }
 ?>

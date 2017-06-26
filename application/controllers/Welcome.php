@@ -94,4 +94,13 @@ class Welcome extends CI_Controller {
         $this->session->sess_destroy();
         echo "<script> window.location.href='".base_url()."';</script>";
     }
+
+    public function agregarPuntaje(){
+        $rut = "18.553.887-7";
+        $puntaje = $this->Contenido->obtenerPuntaje($rut);
+        $puntajeObt = $puntaje->puntajeObt;
+        $this->Contenido->agregarPuntaje($rut,$puntajeObt);
+        echo true;
+
+    }
 }

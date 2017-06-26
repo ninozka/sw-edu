@@ -2,6 +2,7 @@ var pregunta;
 var rc;
 var ri1;
 var ri2;
+var cont = 0;
 $.ajax({
             url: 'http://localhost/sw-edu/Welcome/obtenerPregunta/',
             type: 'post',
@@ -60,12 +61,10 @@ Pregunta1.prototype = {
         var anterior = this.game.add.button((window.innerWidth*0.01),(window.innerHeight*0.53),'btn-a',this.previous,this,2,1,0);
         var siguiente = this.game.add.button((window.innerWidth*0.593),(window.innerHeight*0.53),'btn-s',this.next,this,2,1,0);
         this.game.stage.backgroundColor = "#fff";
-        this.game.add.image(100,100,'pregunta');
-        this.game.add.image(200,500,'rc');
-        this.game.add.image(400,500,'ri1');
-        this.game.add.image(600,500,'ri2');
-
-
+        this.game.add.image(350,100,'pregunta');
+        var rc = this.game.add.button((window.innerWidth*0.10),(window.innerHeight*0.43),'rc', respuestaCorrecta ,this, 2, 1,0);
+        var ri1 = this.game.add.button((window.innerWidth*0.30),(window.innerHeight*0.43),'ri1', '','', 2, 1,0);
+        var ri2 = this.game.add.button((window.innerWidth*0.50),(window.innerHeight*0.43),'ri2', '','', 2, 1,0);
     },
 
     previous: function(){
@@ -73,6 +72,38 @@ Pregunta1.prototype = {
     },
 
     next: function(){
-        this.game.state.start("Clase1");
+        this.game.state.start("Pregunta2");
+    },
+
+}
+
+function respuestaCorrecta(){
+    if(cont==0){
+        $.ajax({
+        url: 'http://localhost/sw-edu/Welcome/agregarPuntaje/',
+        })
+        .done(function(){
+            alert('respondido');
+        })
+        .fail(function( jqXHR, textStatus, errorThrown ) {
+
+              if (jqXHR.status === 0) {
+                alert('Not connect: Verify Network.');
+              } else if (jqXHR.status == 404) {
+                alert('Requested page not found [404]');
+              } else if (jqXHR.status == 500) {
+                alert('Internal Server Error [500].');
+              } else if (textStatus === 'parsererror') {
+                alert('Requested JSON parse failed.');
+              } else if (textStatus === 'timeout') {
+                alert('Time out error.');
+              } else if (textStatus === 'abort') {
+                alert('Ajax request aborted.');
+              } else {
+                alert('Uncaught Error: ' + jqXHR.responseText);
+              }
+
+         });
     }
+    cont = 1;
 }
