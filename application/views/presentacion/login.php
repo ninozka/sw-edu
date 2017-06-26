@@ -42,6 +42,7 @@
                     </form>
                 </div>
                 <a href="<?=base_url()?>Welcome/iniciarPhaser" class="btn btn-large waves-effect">Iniciar Phaser</a>
+                <a href="<?=base_url()?>Welcome/iniciarTest" class="btn btn-large waves-effect">TEST Alumnos</a>
                 <div class="section"></div>
                 <div class="section"></div>
             </div>

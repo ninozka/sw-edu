@@ -26,6 +26,10 @@ class Welcome extends CI_Controller {
         $this->load->view('juego/holamundo');
     }
 
+    public function iniciarTest(){
+        $this->load->view('juego/test');
+    }
+
     public function login(){
         $email = $this->input->post('email');
         $password = $this->input->post('password');
