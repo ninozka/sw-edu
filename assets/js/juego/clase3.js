@@ -17,10 +17,18 @@ Clase3.prototype = {
         this.game.load.spritesheet('constructor-cascara','../assets/image/constructor-cascara.png', 219, 43);
         this.game.load.spritesheet('metodo-cascara1','../assets/image/metodo-cascara.png', 256, 45);
         this.game.load.spritesheet('metodo-cascara2','../assets/image/metodo-cascara.png', 256, 45);
+        this.game.load.spritesheet('variable-cuerpo','../assets/image/variable-cuerpo.png', 118, 45);
+        this.game.load.spritesheet('constructor-cuerpo','../assets/image/constructor-cuerpo.png', 218, 41);
+        this.game.load.spritesheet('metodo-cuerpo1','../assets/image/metodo-cuerpo.png', 252, 47);
+        this.game.load.spritesheet('metodo-cuerpo2','../assets/image/metodo-cuerpo.png', 252, 47);
 
     },
 
     create: function(){
+        var variable;
+        var constructor;
+        var metodo1;
+        var metodo2;
 
         var anterior = this.game.add.button((window.innerWidth*0.01),(window.innerHeight*0.53),'btn-a',this.previous,this,2,1,0);
         var siguiente = this.game.add.button((window.innerWidth*0.593),(window.innerHeight*0.53),'btn-s',this.next,this,2,1,0);
@@ -29,11 +37,26 @@ Clase3.prototype = {
         this.game.add.image(140,175,'constructor-cascara');
         this.game.add.image(130,217,'metodo-cascara1');
         this.game.add.image(130,265,'metodo-cascara2');
-
         this.game.stage.backgroundColor = "#fff";
         this.game.add.text(10, 10, "Une los componentes de la clase del costado derecho de la pantalla con el costado izquierdo", { font: "20px Arial", fill: "black" });
         this.game.add.text(10, 30, "cuando corresponda.", { font: "20px Arial", fill: "black" });
 
+        variable=this.game.add.sprite(540,265,'variable-cuerpo');
+        constructor=this.game.add.sprite(490,175,'constructor-cuerpo');
+        metodo1=this.game.add.sprite(490,125,'metodo-cuerpo1');
+        metodo2=this.game.add.sprite(490,217,'metodo-cuerpo2');
+
+        variable.inputEnabled=true;
+        constructor.inputEnabled=true;
+        metodo1.inputEnabled=true;
+        metodo2.inputEnabled=true;
+
+        variable.input.enableDrag();
+        constructor.input.enableDrag();
+        metodo1.input.enableDrag();
+        metodo2.input.enableDrag();
+
+        variable.events.onDragStop.add(this.fixlocationV);
     },
 
     previous: function(){
@@ -42,5 +65,14 @@ Clase3.prototype = {
 
     next: function(){
         this.game.state.start("Inicio1");
+    },
+
+    fixlocationV: function(variable){
+        if(variable.x<250 && variable.y<250){
+            variable.x=190;
+            variable.y=130;
+        }
+
     }
+
 }
