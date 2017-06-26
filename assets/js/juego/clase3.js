@@ -57,6 +57,9 @@ Clase3.prototype = {
         metodo2.input.enableDrag();
 
         variable.events.onDragStop.add(this.fixlocationV);
+        constructor.events.onDragStop.add(this.fixlocationC);
+        metodo1.events.onDragStop.add(this.fixlocationM1);
+        metodo2.events.onDragStop.add(this.fixlocationM2);
     },
 
     previous: function(){
@@ -68,10 +71,24 @@ Clase3.prototype = {
     },
 
     fixlocationV: function(variable){
-        if(variable.x<250 && variable.y<250){
+        if(variable.x<250 && variable.y<150){
             variable.x=190;
             variable.y=130;
         }
+    },
+
+    fixlocationC:function(constructor){
+        if(constructor.x<250 && (constructor.y<200 && constructor.y>150)){
+            constructor.x=140;
+            constructor.y=175;
+        }
+    },
+
+    fixlocationM1:function(metodo1){
+        if(metodo1.x)
+    },
+
+    fixlocationM2:function(metodo2){
 
     }
 

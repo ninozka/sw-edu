@@ -1,11 +1,11 @@
 var url = $('#url').val();
 var id = 1;
-var pregunta1 = function(game){
+var Pregunta1 = function(game){
 
 };
 
 
-Inicio0.prototype = {
+Pregunta1.prototype = {
 
     init: function(){
 
@@ -48,9 +48,6 @@ Inicio0.prototype = {
         this.game.load.spritesheet('btn-a','../assets/buttons/btn-a.png', 58, 58);
         this.game.load.spritesheet('btn-s','../assets/buttons/btn-s.png', 58, 58);
 
-        //this.game.load.audio('fondo','../assets/sonido/fondo.mp3');
-
-
     },
 
     create: function(){
@@ -58,14 +55,9 @@ Inicio0.prototype = {
         var anterior = this.game.add.button((window.innerWidth*0.01),(window.innerHeight*0.53),'btn-a',this.previous,this,2,1,0);
         var siguiente = this.game.add.button((window.innerWidth*0.593),(window.innerHeight*0.53),'btn-s',this.next,this,2,1,0);
         this.game.stage.backgroundColor = "#fff";
-        this.game.add.text(80, 70, "En este modulo responderemos las siguientes interrogantes:", { font: "28px Arial", fill: "black" });
-        this.game.add.text(120, 150, "- ¿Qué es una clase?", { font: "30px Arial", fill: "black" });
-        this.game.add.text(120, 190, "- ¿Qué componentes tiene una clase?", { font: "30px Arial", fill: "black" });
-        this.game.add.text(120, 230, "- ¿Cómo se construye una clase?", { font: "30px Arial", fill: "black" });
-        fondo = this.game.add.audio('fondo');
-        fondo.play();
-        fondo.loopFull(1);
-        fondo.onLoop.add('',this);
+
+        this.game.add.image(140,175,'pregunta1');
+
     },
 
     previous: function(){
