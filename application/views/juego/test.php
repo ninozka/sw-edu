@@ -12,13 +12,7 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/easytimer.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/timer.js"></script>
-    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/inicio0.js"></script>
-    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/inicio1.js"></script>
-    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/inicio2.js"></script>
-    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/inicio3.js"></script>
-    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/clase1.js"></script>
-    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/clase2.js"></script>
-    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/clase3.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/pregunta1.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/materialize.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.materialize-autocomplete.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
@@ -42,14 +36,13 @@
 
         function empezarPhaser(){
             window.game = new Phaser.Game((window.innerWidth*0.65),(window.innerHeight*0.65), Phaser.CANVAS, 'phaser-example');
-            game.state.add("Inicio0", Inicio0);
-            game.state.add("Inicio1", Inicio1);
-            game.state.add("Inicio2", Inicio2);
-            game.state.add("Inicio3", Inicio3);
-            game.state.add("Clase1", Clase1);
-            game.state.add("Clase2", Clase2);
-            game.state.add("Clase3", Clase3);
-            game.state.start("Inicio0");
+            game.state.add("pregunta1", pregunta1);
+            game.state.add("pregunta2", pregunta2);
+            game.state.add("pregunta3", pregunta3);
+            game.state.add("pregunta4", pregunta4);
+            game.state.add("pregunta5", pregunta5);
+            game.state.add("pregunta6", pregunta6);
+            game.state.start("pregunta1");
         }
     </script>
 
@@ -94,5 +87,6 @@
     }
 
 </script>
+<input type="hidden" id="url" value="<?=base_url()?>">
 </body>
 </html>
