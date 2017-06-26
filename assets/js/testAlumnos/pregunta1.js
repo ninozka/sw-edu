@@ -1,4 +1,3 @@
-var url = $('#url').val();
 var id = 1;
 var Pregunta1 = function(game){
 
@@ -7,14 +6,14 @@ var Pregunta1 = function(game){
 
 Pregunta1.prototype = {
 
-    init: function(){
-
+    init: function(url){
+        var ajax = url;
     },
 
     preload: function(){
 
         $.ajax({
-            url: url+'Welcome/obtenerPregunta',
+            url: ajax,
             type: 'POST',
             data: {'id': id},
             dataType: 'json'
@@ -57,6 +56,9 @@ Pregunta1.prototype = {
         this.game.stage.backgroundColor = "#fff";
 
         this.game.add.image(140,175,'pregunta1');
+        this.game.add.image(140,175,'rc');
+        this.game.add.image(140,175,'ri1');
+        this.game.add.image(140,175,'ri2');
 
     },
 

@@ -84,12 +84,12 @@ Clase3.prototype = {
         }
     },
 
-    fixlocationM1:function(metodo1){
+    /*fixlocationM1:function(metodo1){
         if(metodo1.x)
     },
 
     fixlocationM2:function(metodo2){
 
     }
-
+*/
 }

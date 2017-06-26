@@ -79,14 +79,14 @@ class Welcome extends CI_Controller {
     }
     
     public function obtenerPregunta(){
-        $id = $this->input->post('id');
+        $id = $this->input->get('id');
         $datos = $this->Contenido->obtenerPregunta($id);
         $ri1 = $this->Contenido->ri1($id);
         $ri2 = $this->Contenido->ri2($id);
         $data = array('pregunta' => $datos->pregunta,
                      'rc' => $datos->rc,
                      'ri1' => $ri1->respuesta,
-                     'ri2' => $ri2->respuesta,);
+                     'ri2' => $ri2->respuesta);
         echo json_encode($data);
     }
 

@@ -15,21 +15,16 @@
         }
 
         public function ri1($id){
-            $this->db->select('*');
-            $this->db->from('respuestas_incorrectas');
-            $this->db->where('pregunta_id',$id);
+
             $this->db->order_by('id','asc');
             $this->db->limit(1);
-            $data = $this->db->get();
+            $data = $this->db->get_where('respuestas_incorrectas', array('pregunta_id' => $id));
             return $data->row();
         }
         public function ri2($id){
-            $this->db->select('*');
-            $this->db->from('respuestas_incorrectas');
-            $this->db->where('pregunta_id',$id);
             $this->db->order_by('id','desc');
             $this->db->limit(1);
-            $data = $this->db->get();
+            $data = $this->db->get_where('respuestas_incorrectas', array('pregunta_id' => $id));
             return $data->row();
         }
     }
