@@ -79,7 +79,7 @@ class Welcome extends CI_Controller {
     }
     
     public function obtenerPregunta(){
-        $id = $this->input->get('id');
+        $id = $this->input->post('id');
         $datos = $this->Contenido->obtenerPregunta($id);
         $ri1 = $this->Contenido->ri1($id);
         $ri2 = $this->Contenido->ri2($id);

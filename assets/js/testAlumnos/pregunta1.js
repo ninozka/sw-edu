@@ -1,28 +1,18 @@
-var id = 1;
-var Pregunta1 = function(game){
-
-};
-
-
-Pregunta1.prototype = {
-
-    init: function(url){
-        var ajax = url;
-    },
-
-    preload: function(){
-
-        $.ajax({
-            url: ajax,
-            type: 'POST',
-            data: {'id': id},
+var pregunta;
+var rc;
+var ri1;
+var ri2;
+$.ajax({
+            url: 'http://localhost/sw-edu/Welcome/obtenerPregunta/',
+            type: 'post',
+            data: {'id': '1'},
             dataType: 'json'
         })
         .done(function(data){
-            this.game.load.spritesheet('pregunta1',data.pregunta,400,400);
-            this.game.load.spritesheet('rc',data.rc,100,100);
-            this.game.load.spritesheet('ri1',data.ri1,100,100);
-            this.game.load.spritesheet('ri2',data.ri2,100,100);
+            pregunta = data.pregunta;
+            rc = data.rc;
+            ri1 = data.ri1;
+            ri2 = data.ri2;
         })
         .fail(function( jqXHR, textStatus, errorThrown ) {
 
@@ -44,8 +34,24 @@ Pregunta1.prototype = {
 
          });
 
+var Pregunta1 = function(game){
+
+};
+
+
+Pregunta1.prototype = {
+
+    init: function(){
+
+    },
+
+    preload: function(){
         this.game.load.spritesheet('btn-a','../assets/buttons/btn-a.png', 58, 58);
         this.game.load.spritesheet('btn-s','../assets/buttons/btn-s.png', 58, 58);
+        this.game.load.spritesheet('pregunta',pregunta, 500, 500);
+        this.game.load.spritesheet('rc',rc, 100, 100);
+        this.game.load.spritesheet('ri1',ri1, 100, 100);
+        this.game.load.spritesheet('ri2',ri2, 100, 100);
 
     },
 
@@ -54,11 +60,11 @@ Pregunta1.prototype = {
         var anterior = this.game.add.button((window.innerWidth*0.01),(window.innerHeight*0.53),'btn-a',this.previous,this,2,1,0);
         var siguiente = this.game.add.button((window.innerWidth*0.593),(window.innerHeight*0.53),'btn-s',this.next,this,2,1,0);
         this.game.stage.backgroundColor = "#fff";
+        this.game.add.image(100,100,'pregunta');
+        this.game.add.image(200,500,'rc');
+        this.game.add.image(400,500,'ri1');
+        this.game.add.image(600,500,'ri2');
 
-        this.game.add.image(140,175,'pregunta1');
-        this.game.add.image(140,175,'rc');
-        this.game.add.image(140,175,'ri1');
-        this.game.add.image(140,175,'ri2');
 
     },
 
