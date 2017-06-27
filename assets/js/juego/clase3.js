@@ -1,3 +1,5 @@
+var cont = 0;
+
 var Clase3 = function(game){
 
 };
@@ -21,6 +23,8 @@ Clase3.prototype = {
         this.game.load.spritesheet('constructor-cuerpo','../assets/image/constructor-cuerpo.png', 218, 41);
         this.game.load.spritesheet('metodo-cuerpo1','../assets/image/metodo-cuerpo.png', 252, 47);
         this.game.load.spritesheet('metodo-cuerpo2','../assets/image/metodo-cuerpo.png', 252, 47);
+        this.game.load.audio('win','../assets/sonido/win.mp3');
+
 
     },
 
@@ -36,60 +40,76 @@ Clase3.prototype = {
         this.game.add.image(190,130,'variable-cascara');
         this.game.add.image(140,175,'constructor-cascara');
         this.game.add.image(130,217,'metodo-cascara1');
-        this.game.add.image(130,265,'metodo-cascara2');
+        this.game.add.image(130,265,'metodo-cuerpo1');
         this.game.stage.backgroundColor = "#fff";
         this.game.add.text(10, 10, "Une los componentes de la clase del costado derecho de la pantalla con el costado izquierdo", { font: "20px Arial", fill: "black" });
         this.game.add.text(10, 30, "cuando corresponda.", { font: "20px Arial", fill: "black" });
 
+        win = this.game.add.audio('win');
+
         variable=this.game.add.sprite(540,265,'variable-cuerpo');
         constructor=this.game.add.sprite(490,175,'constructor-cuerpo');
         metodo1=this.game.add.sprite(490,125,'metodo-cuerpo1');
-        metodo2=this.game.add.sprite(490,217,'metodo-cuerpo2');
 
         variable.inputEnabled=true;
         constructor.inputEnabled=true;
         metodo1.inputEnabled=true;
-        metodo2.inputEnabled=true;
 
         variable.input.enableDrag();
         constructor.input.enableDrag();
         metodo1.input.enableDrag();
-        metodo2.input.enableDrag();
 
         variable.events.onDragStop.add(this.fixlocationV);
         constructor.events.onDragStop.add(this.fixlocationC);
         metodo1.events.onDragStop.add(this.fixlocationM1);
-        metodo2.events.onDragStop.add(this.fixlocationM2);
+
+
     },
+
 
     previous: function(){
         //this.game.state.start("Inicio1");
     },
 
     next: function(){
-        this.game.state.start("Inicio1");
+        if(cont>3){
+            this.game.state.start("Inicio1");
+        }
     },
 
     fixlocationV: function(variable){
         if(variable.x<250 && variable.y<150){
             variable.x=190;
             variable.y=130;
+            cont++;
         }
+         if(cont==3){
+            win.play();
+        }
+
     },
 
     fixlocationC:function(constructor){
         if(constructor.x<250 && (constructor.y<200 && constructor.y>150)){
             constructor.x=140;
             constructor.y=175;
+            cont++;
         }
+         if(cont==3){
+            win.play();
+        }
+
     },
 
-    /*fixlocationM1:function(metodo1){
-        if(metodo1.x)
-    },
-
-    fixlocationM2:function(metodo2){
+    fixlocationM1:function(metodo1){
+        if(metodo1.x<250 && (metodo1.y<250 && metodo1.y>180)){
+            metodo1.x = 130;
+            metodo1.y = 217;
+            cont++;
+        }
+         if(cont==3){
+            win.play();
+        }
 
     }
-*/
 }

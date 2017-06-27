@@ -48,6 +48,7 @@ var Pregunta1 = function(game){
 
 Pregunta1.prototype = {
 
+
     init: function(){
         var pregunta1 = pregunta;
         var resC = rc;

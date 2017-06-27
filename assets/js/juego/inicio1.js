@@ -72,7 +72,7 @@ Inicio1.prototype = {
     },
 
     next: function(){
-        this.game.state.start("Inicio2");
+        this.game.state.start("Clase3");
     }
 
 }

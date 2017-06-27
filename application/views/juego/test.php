@@ -30,8 +30,8 @@
 
         function empezarPhaser(){
             window.game = new Phaser.Game((window.innerWidth*0.65),(window.innerHeight*0.65), Phaser.CANVAS, 'phaser-example');
-            game.state.add("pregunta1", Pregunta1);
-            game.state.start("pregunta1");
+            game.state.add("Pregunta1", Pregunta1);
+            game.state.start("Pregunta1");
         }
     </script>
 
