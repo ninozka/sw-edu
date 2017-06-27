@@ -1,18 +1,47 @@
-$(document).ready(function(){
-
-
 var pregunta;
 var rc;
 var ri1;
 var ri2;
-var cont = 0;
-var idPreg1 = 1;
 
-$.ajax({
+
+var Pregunta1 = function(game){
+
+};
+
+
+Pregunta1.prototype = {
+
+    init: function(){
+
+    },
+
+    preload: function(){
+        this.preguntas();
+        this.game.load.spritesheet('btn-a','../assets/buttons/btn-a.png', 58, 58);
+        this.game.load.spritesheet('btn-s','../assets/buttons/btn-s.png', 58, 58);
+        this.game.load.spritesheet('pregunta',pregunta, 500, 500);
+        this.game.load.spritesheet('rc',rc, 100, 100);
+        this.game.load.spritesheet('ri1',ri1, 100, 100);
+        this.game.load.spritesheet('ri2',ri2, 100, 100);
+
+    },
+
+    create: function(){
+
+        var anterior = this.game.add.button((window.innerWidth*0.01),(window.innerHeight*0.53),'btn-a',this.previous,this,2,1,0);
+        var siguiente = this.game.add.button((window.innerWidth*0.593),(window.innerHeight*0.53),'btn-s',this.next,this,2,1,0);
+        this.game.stage.backgroundColor = "#fff";
+        this.game.add.image(350,100,'pregunta');
+        var rc = this.game.add.button((window.innerWidth*0.10),(window.innerHeight*0.43),'rc', respuestaCorrecta ,this, 2, 1,0);
+        var ri1 = this.game.add.button((window.innerWidth*0.30),(window.innerHeight*0.43),'ri1', '','', 2, 1,0);
+        var ri2 = this.game.add.button((window.innerWidth*0.50),(window.innerHeight*0.43),'ri2', '','', 2, 1,0);
+    },
+    preguntas: function(){
+        $.ajax({
             url: 'http://localhost/sw-edu/Welcome/obtenerPregunta/',
             type: 'post',
             cache: false,
-            data: {'id': idPreg1},
+            data: {'id': '1'},
             dataType: 'json'
         })
         .done(function(data){
@@ -40,47 +69,10 @@ $.ajax({
               }
 
          });
-
-var Pregunta1 = function(game){
-
-};
-
-
-Pregunta1.prototype = {
-
-
-    init: function(){
-        var pregunta1 = pregunta;
-        var resC = rc;
-        var resI1 = ri1;
-        var resI2 = ri2;
-    },
-
-    preload: function(){
-        this.game.load.spritesheet('btn-a','../assets/buttons/btn-a.png', 58, 58);
-        this.game.load.spritesheet('btn-s','../assets/buttons/btn-s.png', 58, 58);
-        this.game.load.spritesheet('pregunta',pregunta1, 500, 500);
-        this.game.load.spritesheet('rc',resC, 100, 100);
-        this.game.load.spritesheet('ri1',resI1, 100, 100);
-        this.game.load.spritesheet('ri2',resI2, 100, 100);
-
-    },
-
-    create: function(){
-
-        var anterior = this.game.add.button((window.innerWidth*0.01),(window.innerHeight*0.53),'btn-a',this.previous,this,2,1,0);
-        var siguiente = this.game.add.button((window.innerWidth*0.593),(window.innerHeight*0.53),'btn-s',this.next,this,2,1,0);
-        this.game.stage.backgroundColor = "#fff";
-        this.game.add.image(350,100,'pregunta');
-        var rc = this.game.add.button((window.innerWidth*0.10),(window.innerHeight*0.43),'rc', respuestaCorrecta ,this, 2, 1,0);
-        var ri1 = this.game.add.button((window.innerWidth*0.30),(window.innerHeight*0.43),'ri1', '','', 2, 1,0);
-        var ri2 = this.game.add.button((window.innerWidth*0.50),(window.innerHeight*0.43),'ri2', '','', 2, 1,0);
-    },
+    }
 }
 
 function respuestaCorrecta(){
-    console.log(idPreg1,cont)
-    if(cont==0){
         $.ajax({
             url: 'http://localhost/sw-edu/Welcome/agregarPuntaje/',
             cache: false
@@ -108,6 +100,3 @@ function respuestaCorrecta(){
 
          });
     }
-}
-
-    });

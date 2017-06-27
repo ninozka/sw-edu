@@ -34,10 +34,11 @@
         }
 
         public function agregarPuntaje($rut,$puntaje){
-            $puntaje = puntaje +1;
+            $puntaje = $puntaje +1;
             $data = array('puntajeObt' => $puntaje);
             $this->db->where('rut',$rut);
             $this->db->update('resultado_test',$data);
+            return true;
         }
     }
 ?>

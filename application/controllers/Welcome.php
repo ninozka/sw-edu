@@ -100,7 +100,7 @@ class Welcome extends CI_Controller {
         $puntaje = $this->Contenido->obtenerPuntaje($rut);
         $puntajeObt = $puntaje->puntajeObt;
         $this->Contenido->agregarPuntaje($rut,$puntajeObt);
-        echo true;
+        echo 'true';
 
     }
 }
