@@ -1,12 +1,18 @@
+$(document).ready(function(){
+
+
 var pregunta;
 var rc;
 var ri1;
 var ri2;
 var cont = 0;
+var idPreg1 = 1;
+
 $.ajax({
             url: 'http://localhost/sw-edu/Welcome/obtenerPregunta/',
             type: 'post',
-            data: {'id': '1'},
+            cache: false,
+            data: {'id': idPreg1},
             dataType: 'json'
         })
         .done(function(data){
@@ -43,16 +49,19 @@ var Pregunta1 = function(game){
 Pregunta1.prototype = {
 
     init: function(){
-
+        var pregunta1 = pregunta;
+        var resC = rc;
+        var resI1 = ri1;
+        var resI2 = ri2;
     },
 
     preload: function(){
         this.game.load.spritesheet('btn-a','../assets/buttons/btn-a.png', 58, 58);
         this.game.load.spritesheet('btn-s','../assets/buttons/btn-s.png', 58, 58);
-        this.game.load.spritesheet('pregunta',pregunta, 500, 500);
-        this.game.load.spritesheet('rc',rc, 100, 100);
-        this.game.load.spritesheet('ri1',ri1, 100, 100);
-        this.game.load.spritesheet('ri2',ri2, 100, 100);
+        this.game.load.spritesheet('pregunta',pregunta1, 500, 500);
+        this.game.load.spritesheet('rc',resC, 100, 100);
+        this.game.load.spritesheet('ri1',resI1, 100, 100);
+        this.game.load.spritesheet('ri2',resI2, 100, 100);
 
     },
 
@@ -66,24 +75,17 @@ Pregunta1.prototype = {
         var ri1 = this.game.add.button((window.innerWidth*0.30),(window.innerHeight*0.43),'ri1', '','', 2, 1,0);
         var ri2 = this.game.add.button((window.innerWidth*0.50),(window.innerHeight*0.43),'ri2', '','', 2, 1,0);
     },
-
-    previous: function(){
-        //this.game.state.start("Inicio1");
-    },
-
-    next: function(){
-        this.game.state.start("Pregunta2");
-    },
-
 }
 
 function respuestaCorrecta(){
+    console.log(idPreg1,cont)
     if(cont==0){
         $.ajax({
-        url: 'http://localhost/sw-edu/Welcome/agregarPuntaje/',
+            url: 'http://localhost/sw-edu/Welcome/agregarPuntaje/',
+            cache: false
         })
-        .done(function(){
-            alert('respondido');
+        .done(function(data){
+            alert(data);
         })
         .fail(function( jqXHR, textStatus, errorThrown ) {
 
@@ -105,5 +107,6 @@ function respuestaCorrecta(){
 
          });
     }
-    cont = 1;
 }
+
+    });
