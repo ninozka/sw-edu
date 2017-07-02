@@ -36,7 +36,10 @@ Pregunta1.prototype = {
         var ri1 = this.game.add.button((window.innerWidth*0.30),(window.innerHeight*0.43),'ri1', '','', 2, 1,0);
         var ri2 = this.game.add.button((window.innerWidth*0.50),(window.innerHeight*0.43),'ri2', '','', 2, 1,0);
     },
+
     preguntas: function(){
+
+        console.log("entro a la funcion");
         $.ajax({
             url: 'http://localhost/sw-edu/Welcome/obtenerPregunta/',
             type: 'post',

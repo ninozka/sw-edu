@@ -72,8 +72,8 @@ Clase3.prototype = {
     },
 
     next: function(){
-        if(cont>3){
-            this.game.state.start("Inicio1");
+        if(cont>=3){
+            this.game.state.start("Clase4");
         }
     },
 
