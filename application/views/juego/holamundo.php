@@ -23,6 +23,10 @@
     <script type="text/javascript" src="<?=base_url()?>assets/js/juego/clase5.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/juego/clase6.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/juego/clase7.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/clase8.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/clase9.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/clase10.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>assets/js/juego/clase11.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/materialize.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.materialize-autocomplete.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
@@ -57,6 +61,10 @@
             game.state.add("Clase5", Clase5);
             game.state.add("Clase6", Clase6);
             game.state.add("Clase7", Clase7);
+            game.state.add("Clase8", Clase8);
+            game.state.add("Clase9", Clase9);
+            game.state.add("Clase10", Clase10);
+            game.state.add("Clase11", Clase11);
             game.state.start("Inicio0");
         }
     </script>
