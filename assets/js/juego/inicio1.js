@@ -23,7 +23,7 @@ Inicio1.prototype = {
         var instancia = this.game.add.button((window.innerWidth*0.03),(window.innerHeight*0.23),'instancia', '','', 2, 1,0);
         var constructor = this.game.add.button((window.innerWidth*0.24),(window.innerHeight*0.23),'constructor','', this, 2, 1,0);
         var metodo = this.game.add.button((window.innerWidth*0.45),(window.innerHeight*0.23),'metodo','',this,2,1,0);
-        var anterior = this.game.add.button((window.innerWidth*0.01),(window.innerHeight*0.53),'btn-a','',this,2,1,0);
+        var anterior = this.game.add.button((window.innerWidth*0.01),(window.innerHeight*0.53),'btn-a','',this.previous,2,1,0);
         var siguiente = this.game.add.button((window.innerWidth*0.593),(window.innerHeight*0.53),'btn-s',this.next,this,2,1,0);
         
         sonidoImagen = this.game.add.audio('imagen');
@@ -69,6 +69,11 @@ Inicio1.prototype = {
         if (e.key === 'instancia' || e.key === 'constructor' || e.key === 'metodo'){
             text.destroy();
         }
+
+    },
+
+    previous: function(){
+        this.game.state.start("Clase2");
     },
 
     next: function(){

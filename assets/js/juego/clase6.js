@@ -48,7 +48,7 @@ Clase6.prototype = {
     },
 
     previous: function(){
-        //this.game.state.start("Inicio1");
+        this.game.state.start("Clase5");
     },
 
     next: function(){

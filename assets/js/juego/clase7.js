@@ -29,7 +29,7 @@ Clase7.prototype = {
     },
 
     previous: function(){
-        //this.game.state.start("Inicio1");
+        this.game.state.start("Clase6");
     },
 
     next: function(){

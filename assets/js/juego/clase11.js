@@ -22,23 +22,25 @@ Clase11.prototype = {
     create: function(){
         this.game.stage.backgroundColor = "#fff";
         var public = this.game.add.button((window.innerWidth*0.03),(window.innerHeight*0.23),'public', '','', 2, 1,0);
-        var protected = this.game.add.button((window.innerWidth*0.24),(window.innerHeight*0.23),'protected','', this, 2, 1,0);
-        var omision = this.game.add.button((window.innerWidth*0.45),(window.innerHeight*0.23),'omision','',this,2,1,0);
+        var protected = this.game.add.button((window.innerWidth*0.17),(window.innerHeight*0.23),'protected','', this, 2, 1,0);
+        var omision = this.game.add.button((window.innerWidth*0.30),(window.innerHeight*0.23),'omision','',this,2,1,0);
         var private = this.game.add.button((window.innerWidth*0.45),(window.innerHeight*0.23),'private','',this,2,1,0);
         var anterior = this.game.add.button((window.innerWidth*0.01),(window.innerHeight*0.53),'btn-a','',this,2,1,0);
         var siguiente = this.game.add.button((window.innerWidth*0.593),(window.innerHeight*0.53),'btn-s',this.next,this,2,1,0);
 
         sonidoImagen = this.game.add.audio('imagen');
 
-        this.game.add.text((window.innerWidth*0.19),(window.innerHeight*0.05), 'Una clase está compuesta de', { font: "30px Arial", fill: "black" });
+        this.game.add.text((window.innerWidth*0.19),(window.innerHeight*0.05), 'Los modificadores de visibilidad pueden ser:', { font: "30px Arial", fill: "black" });
 
 
-        instancia.onInputOver.add((e) => {this.over(e);});
-        constructor.onInputOver.add((e) => {this.over(e);});
-        metodo.onInputOver.add((e) => {this.over(e);});
-        instancia.onInputOut.add((e) => {this.out(e);});
-        constructor.onInputOut.add((e) => {this.out(e);});
-        metodo.onInputOut.add((e) => {this.out(e);});
+        public.onInputOver.add((e) => {this.over(e);});
+        protected.onInputOver.add((e) => {this.over(e);});
+        omision.onInputOver.add((e) => {this.over(e);});
+        private.onInputOver.add((e) => {this.over(e);});
+        public.onInputOut.add((e) => {this.out(e);});
+        protected.onInputOut.add((e) => {this.out(e);});
+        omision.onInputOut.add((e) => {this.out(e);});
+        private.onInputOut.add((e) => {this.out(e);});
     },
 
     over: function(e){
@@ -46,18 +48,23 @@ Clase11.prototype = {
 
         var posicion;
 
-        if (e.key === 'instancia'){
-            contenido = 'Las variables de instancia son\nlos atributos de una clase';
+        if (e.key === 'public'){
+            contenido = 'Mayor visibilidad, cualquier otra clase puede acceder.';
             posicion = "center";
             sonidoImagen.play();
         }
-        if(e.key == 'constructor'){
-            contenido = 'El constructor contiene las\ninstrucciones que se ejecutan\nal momento de crear una INSTANCIA DE CLASE.';
+        if(e.key == 'protected'){
+            contenido = 'Cualquier subclase puede acceder.';
             posicion = "center";
             sonidoImagen.play();
         }
-        if(e.key == 'metodo'){
-            contenido = 'Un método es un conjunto de instrucciones\nque permiten a un objeto realizar \nuna tarea que le es propia.';
+        if(e.key == 'omision'){
+            contenido = 'Cualquier clase del mismo package puede acceder.';
+            posicion = "center";
+            sonidoImagen.play();
+        }
+        if(e.key == 'private'){
+            contenido = 'Menor visibilidad, solo dentro de la misma clase.';
             posicion = "center";
             sonidoImagen.play();
         }
@@ -68,13 +75,13 @@ Clase11.prototype = {
     },
 
     out:function(e){
-        if (e.key === 'instancia' || e.key === 'constructor' || e.key === 'metodo'){
+        if (e.key === 'public' || e.key === 'protected' || e.key === 'omision' || e.key === 'private'){
             text.destroy();
         }
     },
 
     next: function(){
-        this.game.state.start("Clase3");
+        window.location.assign("https://www.google.cl");
     }
 
 }
